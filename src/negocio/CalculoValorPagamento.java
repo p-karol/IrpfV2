@@ -9,7 +9,7 @@ package negocio;
  *
  * @author jbredow
  */
-public class CalculaValorPagamento {
+public class CalculoValorPagamento {
     
     public double calculaValorPagamento(double baseCalculo){
         

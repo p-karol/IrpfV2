@@ -11,6 +11,7 @@ package negocio;
  */
 public interface CalculoIrpf {
     
-    public double calcularDesconto();
+    public double calcular(Contribuinte contribuinte);
+    
     
 }

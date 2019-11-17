@@ -9,7 +9,7 @@ package negocio;
  *
  * @author p-karol
  */
-public class CalculaBase {
+public class CalculoBase {
     
     public double calculoBaseCalculo(Contribuinte contribuinte) {
         return (contribuinte.getTotalRendimentos() - contribuinte.getContrubuicaoPrevidenciaria());

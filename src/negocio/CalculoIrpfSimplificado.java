@@ -11,7 +11,7 @@ package negocio;
  */
 public class CalculoIrpfSimplificado implements CalculoIrpf {
     
-    private CalculaBase imposto;
+    private CalculoBase imposto;
     private Contribuinte contribuinte;
     
     @Override
