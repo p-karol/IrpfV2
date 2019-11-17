@@ -11,16 +11,21 @@ package negocio;
  */
 public class CalculoIrpfSimplificado implements CalculoIrpf {
     
-    private CalculoBase imposto;
-    private Contribuinte contribuinte;
+    double desconto;
+    CalculoBase baseCalculo;
+    double baseComDesconto;
+    CalculoValorPagamento valorPagamento;
     
     @Override
-    public double calcularDesconto(){
+    public double calcular(Contribuinte contribuinte){
+        
+        double base = baseCalculo.calculoBaseCalculo(contribuinte);
+        desconto = 0.05; 
+        
+        //aplica desconto ao valor base
+        baseComDesconto = base - (base * desconto);
+        
+        return valorPagamento.calculaValorPagamento(baseComDesconto);
         
     }
-    
-    
-    
-    
-    
-}
+} 
