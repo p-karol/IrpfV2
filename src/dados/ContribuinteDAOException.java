@@ -6,7 +6,7 @@ package dados;
 
 /**
  *
- * @author Júlio
+ * @author p-karol
  */
 public class ContribuinteDAOException extends Exception {
 

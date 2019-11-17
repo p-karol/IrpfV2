@@ -11,7 +11,7 @@ import negocio.*;
 
 /**
  *
- * @author Julio
+ * @author p-karol
  */
 public class CadastroControlador {
     private IrpfFachada fachada;

@@ -13,5 +13,4 @@ public interface CalculoIrpf {
     
     public double calcular(Contribuinte contribuinte);
     
-    
 }

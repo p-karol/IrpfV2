@@ -7,7 +7,7 @@ package negocio;
 
 /**
  *
- * @author jbredow
+ * @author p-karol
  */
 public class CalculoValorPagamento {
     

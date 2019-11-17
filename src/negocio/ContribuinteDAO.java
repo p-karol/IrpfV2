@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Julio
+ * @author p-karol
  */
 public interface ContribuinteDAO {
     boolean adicionar(Contribuinte p) throws ContribuinteDAOException;

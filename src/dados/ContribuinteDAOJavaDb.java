@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Júlio
+ * @author p-karol
  */
 public class ContribuinteDAOJavaDb implements ContribuinteDAO{
     private static ContribuinteDAOJavaDb ref;
