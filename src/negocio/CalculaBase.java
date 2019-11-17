@@ -9,14 +9,9 @@ package negocio;
  *
  * @author p-karol
  */
-public class CalculoIrpfCompleto {
+public class CalculaBase {
     
-    @Override
-    public double calcularDesconto(Contribuinte contribuinte, double baseCalculo){
-        
-        
-        
-    }
-    
-    
+    public double calculoBaseCalculo(Contribuinte contribuinte) {
+        return (contribuinte.getTotalRendimentos() - contribuinte.getContrubuicaoPrevidenciaria());
+    }   
 }

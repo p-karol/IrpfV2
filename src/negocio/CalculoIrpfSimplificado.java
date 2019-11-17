@@ -9,6 +9,18 @@ package negocio;
  *
  * @author p-karol
  */
-public class CalculoIrpfSimplificado {
+public class CalculoIrpfSimplificado implements CalculoIrpf {
+    
+    private CalculaBase imposto;
+    private Contribuinte contribuinte;
+    
+    @Override
+    public double calcularDesconto(){
+        
+    }
+    
+    
+    
+    
     
 }

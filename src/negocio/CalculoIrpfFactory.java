@@ -9,6 +9,8 @@ package negocio;
  *
  * @author p-karol
  */
-public class CalculoIrpfFactory {
+public abstract class CalculoIrpfFactory {
+    
+    public abstract 
     
 }
