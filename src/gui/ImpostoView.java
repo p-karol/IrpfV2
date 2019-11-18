@@ -200,6 +200,7 @@ public class ImpostoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
+        String tipo;
         String nome = txtNome.getText();
         String cpf = txtCpf.getText();
         String strIdade = txtIdade.getText();
@@ -210,13 +211,17 @@ public class ImpostoView extends javax.swing.JFrame {
         double contribuicaoPrevidenciaria = Double.parseDouble(strContribuicaoPrevidenciaria);
         String strTotalRendimentos = txtRendimentos.getText();
         double totalRendimentos = Double.parseDouble(strTotalRendimentos);
+        if(rdCompleto.isSelected())
+                tipo = "Completo";
+        else
+                tipo = "Simplificado";
         
         try {
-            if (controlador.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contribuicaoPrevidenciaria, totalRendimentos)) {
-                JOptionPane.showMessageDialog(this, "Contribuinte adicionado com sucesso.");
-            } else {
-                JOptionPane.showMessageDialog(this, "Não foi possível adicionar contribuinte.");
-            }
+            double valor = controlador.calcularIrpf(nome, cpf, idade, numeroDependentes, contribuicaoPrevidenciaria, totalRendimentos, tipo);
+            JOptionPane.showMessageDialog(this, "Valor a pagar: '" + valor + "'.");
+            
+            //JOptionPane.showMessageDialog(this, "Não foi possível calcular irpf do contribuinte.");
+            
         } catch (IrpfException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
@@ -224,6 +229,7 @@ public class ImpostoView extends javax.swing.JFrame {
 
     private void rdSimplificadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSimplificadoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_rdSimplificadoActionPerformed
 
     private void rdCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdCompletoActionPerformed

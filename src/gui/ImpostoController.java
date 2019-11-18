@@ -15,23 +15,22 @@ import negocio.*;
  */
 public class ImpostoController {
     private IrpfFachada fachada;
-    private ListaPessoasModel modelSaidaTexto;
+    private ListaContribuintes modelSaidaTexto;
 
     public ImpostoController() throws IrpfException {
         fachada = new IrpfFachada();
-       // modelSaidaTexto = new ListaPessoasModel(toListString(fachada.buscarTodos()));
+       // modelSaidaTexto = new ListaContribuintes(toListString(fachada.buscarTodos()));
     }
 
     public ListModel<String> getListaPessoasModel(){
         return modelSaidaTexto;
     }
     
-    public boolean adicionarContribuinte(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos) throws IrpfException {
+    public double calcularIrpf(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos, String tipo) throws IrpfException {
         Contribuinte p = fachada.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contrubuicaoPrevidenciaria,  totalRendimentos);
-        if(p != null){
-//            modelSaidaTexto.add(p.toString());
-            return true;
-        }
-        return false;
+        System.out.println(p.toString());
+        return fachada.calculaIrpf(p, tipo);
     }
+    
+    
 }

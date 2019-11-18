@@ -53,8 +53,8 @@ public class IrpfFachada {
     public double calculaIrpf(Contribuinte c, String tipo){
         
         double valorIrpf;
-        CalculoIrpfFactory product = new CalculoIrpfFactory();
-        CalculoIrpf calculo = product.criarCalculoIrpf(tipo); 
+        CalculoIrpfFactory calculoFactory = new CalculoIrpfFactory();
+        CalculoIrpf calculo = calculoFactory.criarCalculoIrpf(tipo); 
         
         valorIrpf = calculo.calcular(c); 
         return valorIrpf; 
