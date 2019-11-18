@@ -10,18 +10,17 @@ package negocio;
  * @author p-karol
  */
 public class CalculoIrpfCompleto implements CalculoIrpf {
-    
-    double desconto;
-    CalculoBase baseCalculo;
-    double baseComDesconto;
-    CalculoValorPagamento valorPagamento;
-    
+        
     @Override
     public double calcular(Contribuinte contribuinte){
         
+        double desconto;
         int dependentes = contribuinte.getNumeroDependentes();
         boolean idoso = contribuinte.getIdade() >= 65;
-        double base = baseCalculo.calculoBaseCalculo(contribuinte);
+        
+        //calcula base de calculo do contribuinte 
+        CalculoBase baseCalculo = new CalculoBase(contribuinte);
+        double base = baseCalculo.calculoBaseCalculo();
         
         //calcula o desconto de acordo com dependentes e idade (idoso/nao idoso)
         if (dependentes <= 2) {
@@ -33,9 +32,12 @@ public class CalculoIrpfCompleto implements CalculoIrpf {
         }
         
         //aplica desconto ao valor base
-        baseComDesconto = base - (base * desconto);
+        double baseComDesconto = base - (base * desconto);
         
-        return valorPagamento.calculaValorPagamento(baseComDesconto);
+        //calcula e retorna valor de pagamento
+        CalculoValorPagamento valorPagamento = new CalculoValorPagamento(baseComDesconto);
+        return valorPagamento.calculaValorPagamento();
+        
         
     }
 } 

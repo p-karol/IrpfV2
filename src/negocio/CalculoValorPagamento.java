@@ -11,7 +11,13 @@ package negocio;
  */
 public class CalculoValorPagamento {
     
-    public double calculaValorPagamento(double baseCalculo){
+    private double baseCalculo;
+    
+    public CalculoValorPagamento(double baseCalculo){
+        this.baseCalculo = baseCalculo; 
+    }
+    
+    public double calculaValorPagamento(){
         
         if (baseCalculo <= 12000) {
             return 0.0;

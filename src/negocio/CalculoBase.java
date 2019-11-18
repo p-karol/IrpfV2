@@ -11,7 +11,13 @@ package negocio;
  */
 public class CalculoBase {
     
-    public double calculoBaseCalculo(Contribuinte contribuinte) {
-        return (contribuinte.getTotalRendimentos() - contribuinte.getContribuicaoPrevidenciaria());
+    private Contribuinte contribuinte;
+    
+    public CalculoBase(Contribuinte contribuinte){
+        this.contribuinte = contribuinte;
+    }
+    
+    public double calculoBaseCalculo() {
+        return contribuinte.getTotalRendimentos() - contribuinte.getContribuicaoPrevidenciaria();
     }   
 }
