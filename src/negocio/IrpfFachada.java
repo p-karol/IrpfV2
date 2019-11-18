@@ -26,19 +26,17 @@ public class IrpfFachada {
     
     public Contribuinte adicionarContribuinte(String nome, String cpf, int idade, int numeroDependentes, double contribuicaoPrevidenciaria, double  totalRendimentos) throws IrpfException{
         
-        
-        
-        
+
         if(!ValidadorContribuinte.isValidName(nome)) {
             throw new IrpfException("Nome de contribuinte inválido!");
         }
         if(!ValidadorContribuinte.isValidCPF(cpf)) {
             throw new IrpfException("CPF inválido!");
         }
-       /* if(!ValidadorContribuinte.isValidAge(idade)) {
+        if(!ValidadorContribuinte.isValidAge(idade)) {
             throw new IrpfException("Idade inválida!");
         }
-        */
+        
         Contribuinte c = new Contribuinte(nome, cpf, idade,numeroDependentes,contribuicaoPrevidenciaria,totalRendimentos);
         System.out.println(c.toString());
         try {

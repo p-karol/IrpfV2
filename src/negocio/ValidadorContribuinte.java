@@ -70,7 +70,7 @@ public class ValidadorContribuinte {
         }
     
     
-    private static boolean isValidAge(int idade) {
+    public static boolean isValidAge(int idade) {
         if (idade >= 0 || idade < 150) {
             return true;
 	}
