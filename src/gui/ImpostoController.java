@@ -27,7 +27,7 @@ public class ImpostoController {
     }
     
     public double calcularIrpf(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos, String tipo) throws IrpfException {
-        Contribuinte p = fachada.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contrubuicaoPrevidenciaria,  totalRendimentos);
+        Contribuinte p = fachada.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contrubuicaoPrevidenciaria,  totalRendimentos, tipo);
         System.out.println(p.toString());
         return fachada.calculaIrpf(p, tipo);
     }

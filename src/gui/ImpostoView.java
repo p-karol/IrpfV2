@@ -200,17 +200,32 @@ public class ImpostoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
+        
+        int idade = -1; 
+        int numeroDependentes = -1;
+        double contribuicaoPrevidenciaria = -1;
+        double totalRendimentos = -1;
+        
         String tipo;
         String nome = txtNome.getText();
         String cpf = txtCpf.getText();
+        
         String strIdade = txtIdade.getText();
-        int idade = Integer.parseInt(strIdade);
+        if(!strIdade.isEmpty())
+            idade = Integer.parseInt(strIdade);
+        
         String strNumeroDependentes = txtDependentes.getText();
-        int numeroDependentes = Integer.parseInt(strNumeroDependentes);
+        if(!strNumeroDependentes.isEmpty())
+            numeroDependentes = Integer.parseInt(strNumeroDependentes);
+        
         String strContribuicaoPrevidenciaria = txtContribuicao.getText();
-        double contribuicaoPrevidenciaria = Double.parseDouble(strContribuicaoPrevidenciaria);
+        if(!strContribuicaoPrevidenciaria.isEmpty())
+            contribuicaoPrevidenciaria = Double.parseDouble(strContribuicaoPrevidenciaria);
+        
         String strTotalRendimentos = txtRendimentos.getText();
-        double totalRendimentos = Double.parseDouble(strTotalRendimentos);
+        if(!strTotalRendimentos.isEmpty())
+            totalRendimentos = Double.parseDouble(strTotalRendimentos);
+        
         if(rdCompleto.isSelected())
                 tipo = "Completo";
         else
