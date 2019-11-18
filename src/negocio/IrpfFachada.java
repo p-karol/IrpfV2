@@ -24,54 +24,27 @@ public class IrpfFachada {
         }
     }
     
-    public Contribuinte adicionarPessoa(String nome, String telefone, boolean masculino) throws IrpfException{
-        if(!ValidadorContribuinte.validaNome(nome)) {
-            throw new IrpfException("Nome de pessoa inválido!");
+    public Contribuinte adicionarContribuinte(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos) throws IrpfException{
+        
+        if(!ValidadorContribuinte.isValidName(nome)) {
+            throw new IrpfException("Nome de contribuinte inválido!");
         }
-        if(!ValidadorContribuinte.validaTelefone(telefone)) {
-            throw new IrpfException("Número de telefone inválido!");
+        if(!ValidadorContribuinte.isValidCPF(cpf)) {
+            throw new IrpfException("CPF inválido!");
         }
-        Contribuinte p = new Contribuinte(nome, telefone, masculino);
+       /* if(!ValidadorContribuinte.isValidAge(idade)) {
+            throw new IrpfException("Idade inválida!");
+        }
+        */
+        Contribuinte c = new Contribuinte(nome, cpf, idade,numeroDependentes,contrubuicaoPrevidenciaria,totalRendimentos);
         try {
-            boolean ok = dao.adicionar(p);
+            boolean ok = dao.adicionar(c);
             if(ok) {
-                return p;
+                return c;
             }
             return null;
         } catch (ContribuinteDAOException e) {
-            throw new IrpfException("Falha ao adicionar pessoa!", e);
-        }
-    }
-
-    public List<Contribuinte> buscarHomens() throws IrpfException{
-        try {
-            return dao.getHomens();
-        } catch (ContribuinteDAOException e) {
-            throw new IrpfException("Falha ao buscar homens!", e);
-        }
-    }
-
-    public List<Contribuinte> buscarMulheres() throws IrpfException{
-        try {
-            return dao.getMulheres();
-        } catch (ContribuinteDAOException e) {
-            throw new IrpfException("Falha ao buscar mulheres!", e);
-        }
-    }
-
-    public List<Contribuinte> buscarTodos() throws IrpfException{
-        try {
-            return dao.getTodos();
-        } catch (ContribuinteDAOException e) {
-            throw new IrpfException("Falha ao buscar pessoas!", e);
-        }
-    }
-
-    public Contribuinte buscarPessoaPorNome(String n) throws IrpfException{
-        try{
-            return dao.getPessoaPorNome(n);
-        } catch(ContribuinteDAOException e) {
-            throw new IrpfException("Falha ao buscar pessoa", e);
+            throw new IrpfException("Falha ao adicionar contribuinte!", e);
         }
     }
 }

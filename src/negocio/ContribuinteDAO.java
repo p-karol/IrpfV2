@@ -13,8 +13,11 @@ import java.util.List;
  */
 public interface ContribuinteDAO {
     boolean adicionar(Contribuinte p) throws ContribuinteDAOException;
+    
+    /*
     Contribuinte getPessoaPorNome(String n) throws ContribuinteDAOException;
     List<Contribuinte> getHomens() throws ContribuinteDAOException;
     List<Contribuinte> getMulheres() throws ContribuinteDAOException;
     List<Contribuinte> getTodos() throws ContribuinteDAOException;
+    */
 }

@@ -9,6 +9,8 @@ package negocio;
  *
  * @author p-karol
  */
+
+// usa padrão Strategy para ter métodos distintos dependendo da demanda, deixando fácil a adição de novos cálculos em caso de mudanças e evitando uso de ifs
 public interface CalculoIrpf {
     
     public double calcular(Contribuinte contribuinte);

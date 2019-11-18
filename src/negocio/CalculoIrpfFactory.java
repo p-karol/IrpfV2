@@ -11,6 +11,6 @@ package negocio;
  */
 public abstract class CalculoIrpfFactory {
     
-    public abstract 
+            //devolve um CalculoIrpf? seja completo ou simplificado, isso?????
     
 }
