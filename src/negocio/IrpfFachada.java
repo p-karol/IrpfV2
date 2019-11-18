@@ -49,4 +49,14 @@ public class IrpfFachada {
             throw new IrpfException("Falha ao adicionar contribuinte!", e);
         }
     }
+    
+    public double calculaIrpf(Contribuinte c, String tipo){
+        
+        double valorIrpf;
+        CalculoIrpfFactory product = new CalculoIrpfFactory();
+        CalculoIrpf calculo = product.criarCalculoIrpf(tipo); 
+        
+        valorIrpf = calculo.calcular(c); 
+        return valorIrpf; 
+    }
 }

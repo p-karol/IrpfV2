@@ -9,8 +9,20 @@ package negocio;
  *
  * @author p-karol
  */
-public abstract class CalculoIrpfFactory {
+public class CalculoIrpfFactory {
     
-            //devolve um CalculoIrpf? seja completo ou simplificado, isso?????
+    //devolve um CalculoIrpf, dependendo do tipo
+    public CalculoIrpf criarCalculoIrpf(String Tipo){
+        
+        CalculoIrpf calculo;
     
+        if(Tipo == "Simplificado"){
+            calculo = new CalculoIrpfSimplificado();
+        }
+        else {
+            calculo = new CalculoIrpfCompleto();
+        }
+        
+        return calculo;
+    }  
 }
