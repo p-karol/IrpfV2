@@ -6,15 +6,15 @@ public class Contribuinte {
     private String cpf;
     private int Idade;
     private int numeroDependentes;
-    private double contrubuicaoPrevidenciaria;
+    private double contribuicaoPrevidenciaria;
     private double totalRendimentos;
 
-    public Contribuinte(String nome, String cpf, int idade, int numDependentes, double contrubuicaoPrevidenciaria, double totalRendimentos) {
+    public Contribuinte(String nome, String cpf, int idade, int numeroDependentes, double contribuicaoPrevidenciaria, double totalRendimentos) {
         this.nome = nome;
         this.cpf = cpf;
         Idade = idade;
         this.numeroDependentes = numeroDependentes;
-        this.contrubuicaoPrevidenciaria = contrubuicaoPrevidenciaria;
+        this.contribuicaoPrevidenciaria = contribuicaoPrevidenciaria;
         this.totalRendimentos = totalRendimentos;
     }
 
@@ -34,8 +34,8 @@ public class Contribuinte {
         return numeroDependentes;
     }
 
-    public double getContrubuicaoPrevidenciaria() {
-        return contrubuicaoPrevidenciaria;
+    public double getContribuicaoPrevidenciaria() {
+        return contribuicaoPrevidenciaria;
     }
 
 
@@ -45,7 +45,7 @@ public class Contribuinte {
 
     @Override
     public String toString() {
-        return "Contribuinte [Idade=" + Idade + ", contrubuicaoPrevidenciaria=" + contrubuicaoPrevidenciaria + ", cpf=" + cpf
+        return "Contribuinte [Idade=" + Idade + ", contribuicaoPrevidenciaria=" + contribuicaoPrevidenciaria + ", cpf=" + cpf
                 + ", nome=" + nome + ", numDependentes=" + numeroDependentes + ", totalRendimentos=" + totalRendimentos
                 + "]";
     }

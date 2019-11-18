@@ -24,7 +24,10 @@ public class IrpfFachada {
         }
     }
     
-    public Contribuinte adicionarContribuinte(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos) throws IrpfException{
+    public Contribuinte adicionarContribuinte(String nome, String cpf, int idade, int numeroDependentes, double contribuicaoPrevidenciaria, double  totalRendimentos) throws IrpfException{
+        
+        
+        
         
         if(!ValidadorContribuinte.isValidName(nome)) {
             throw new IrpfException("Nome de contribuinte inválido!");
@@ -36,7 +39,8 @@ public class IrpfFachada {
             throw new IrpfException("Idade inválida!");
         }
         */
-        Contribuinte c = new Contribuinte(nome, cpf, idade,numeroDependentes,contrubuicaoPrevidenciaria,totalRendimentos);
+        Contribuinte c = new Contribuinte(nome, cpf, idade,numeroDependentes,contribuicaoPrevidenciaria,totalRendimentos);
+        System.out.println(c.toString());
         try {
             boolean ok = dao.adicionar(c);
             if(ok) {

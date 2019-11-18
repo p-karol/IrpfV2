@@ -29,6 +29,15 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
         } catch (ClassNotFoundException ex) {
             throw new ContribuinteDAOException("JdbcOdbDriver not found!!");
         }
+        
+        /*
+        try {
+            createDB();
+        } catch (Exception ex) {
+            System.out.println("Problemas para criar o banco: "+ex.getMessage());
+            System.exit(0);
+        }
+                */
     }
     
     
@@ -36,6 +45,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
     
     
     private static void createDB() throws ContribuinteDAOException {
+        System.out.println("Vem aqui");
         try {
             Connection con = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
             Statement sta = con.createStatement();
@@ -46,7 +56,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
                     + "IDADE INTEGER,"
                     + "DEPENDENTES INTEGER,"
                     + "CONTRIBUICAO DOUBLE,"
-                    + "RENDIMENTOS DOUBLE,"
+                    + "RENDIMENTOS DOUBLE"
                     + ")";
             sta.executeUpdate(sql);
             sta.close();
@@ -66,19 +76,22 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
         try {
             Connection con = getConnection();
             PreparedStatement stmt = con.prepareStatement(
-                    "INSERT INTO CONTRIBUINTE (NOME, CPF, IDADE, DEPENDENTES, CONTRIBUICAO, RENDIMENTOS) VALUES (?,?,?,?,?,?)" //                             1        2         3            4          5             6
+                    "INSERT INTO Contribuinte (NOME, CPF, IDADE, DEPENDENTES, CONTRIBUICAO, RENDIMENTOS) VALUES (?,?,?,?,?,?)" //                             1        2         3            4          5             6
                     );
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getCpf());
             stmt.setInt(3, c.getIdade());
-            stmt.setDouble(4, c.getNumeroDependentes());
-            stmt.setDouble(5, c.getContrubuicaoPrevidenciaria());
+            stmt.setInt(4, c.getNumeroDependentes());
+            stmt.setDouble(5, c.getContribuicaoPrevidenciaria());
             stmt.setDouble(6, c.getTotalRendimentos());
+            System.out.println(stmt.getWarnings());
             
             int ret = stmt.executeUpdate();
+            System.out.println(ret);
             con.close();
             return (ret>0);
         } catch (SQLException ex) {
+            System.out.println("falhando");
             throw new ContribuinteDAOException("Falha ao adicionar.", ex);
         }
     }

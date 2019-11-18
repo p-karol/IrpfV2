@@ -29,7 +29,7 @@ public class ImpostoController {
     public boolean adicionarContribuinte(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos) throws IrpfException {
         Contribuinte p = fachada.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contrubuicaoPrevidenciaria,  totalRendimentos);
         if(p != null){
-            modelSaidaTexto.add(p.toString());
+//            modelSaidaTexto.add(p.toString());
             return true;
         }
         return false;

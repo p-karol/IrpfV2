@@ -12,6 +12,6 @@ package negocio;
 public class CalculoBase {
     
     public double calculoBaseCalculo(Contribuinte contribuinte) {
-        return (contribuinte.getTotalRendimentos() - contribuinte.getContrubuicaoPrevidenciaria());
+        return (contribuinte.getTotalRendimentos() - contribuinte.getContribuicaoPrevidenciaria());
     }   
 }
