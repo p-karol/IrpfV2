@@ -40,24 +40,21 @@ public class CalculoIrpfTest {
     public void calculaIrpfSimplificadoTest() throws IrpfException{
         Contribuinte contribuinte = contribuinteExemplo();
         IrpfFachada fachada = new IrpfFachada();
-        assertEquals(16936.0, fachada.calculaIrpf(contribuinte, "Simplificado"));
+        assertEquals(16936.0, fachada.calculaIrpf(contribuinte, "Simplificado"), 0.001);
     }
     
     @Test
     public void calculaIrpfCompletoTest() throws IrpfException{
-        //public double calculaIrpf(Contribuinte c, String tipo)
         Contribuinte contribuinte = contribuinteExemplo();
         IrpfFachada fachada = new IrpfFachada();
-        assertEquals(17622.4, fachada.calculaIrpf(contribuinte, "Completo"));
-        
+        assertEquals(17622.4, fachada.calculaIrpf(contribuinte, "Completo"), 0.001);
     }
     
     @Test
     public void calculaIrpfCompletoIdosoTest() throws IrpfException{
-        //public double calculaIrpf(Contribuinte c, String tipo)
         Contribuinte contribuinte = contribuinteIdosoExemplo();
         IrpfFachada fachada = new IrpfFachada();
-        assertEquals(17393.6, fachada.calculaIrpf(contribuinte, "Completo"));
+        assertEquals(17393.6, fachada.calculaIrpf(contribuinte, "Completo"), 0.001);
     }
     
     
