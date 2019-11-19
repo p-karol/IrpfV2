@@ -230,7 +230,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Impostos calculados"/>
+        <Property name="text" type="java.lang.String" value="Contribuintes na base"/>
       </Properties>
     </Component>
   </SubComponents>

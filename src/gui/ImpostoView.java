@@ -102,7 +102,7 @@ public class ImpostoView extends javax.swing.JFrame {
         jList1.setModel(controlador.getListaContribuinteModel());
         jScrollPane1.setViewportView(jList1);
 
-        jLabel2.setText("Impostos calculados");
+        jLabel2.setText("Contribuintes na base");
         setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

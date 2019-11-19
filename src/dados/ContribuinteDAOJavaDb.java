@@ -48,6 +48,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
         try {
             Connection con = DriverManager.getConnection("jdbc:derby:derbyDB;create=true");
             Statement sta = con.createStatement();
+            
             String sql = "CREATE TABLE Contribuinte ("
                     + "ID INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
                     + "NOME VARCHAR(100) NOT NULL,"
@@ -57,6 +58,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
                     + "CONTRIBUICAO DOUBLE,"
                     + "RENDIMENTOS DOUBLE"
                     + ")";
+            
             sta.executeUpdate(sql);
             sta.close();
             con.close();
@@ -64,6 +66,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
             throw new ContribuinteDAOException(ex.getMessage());
         }
     }
+        
     
     private static Connection getConnection() throws SQLException {
         //derbyDB sera o nome do diretorio criado localmente
@@ -74,6 +77,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
     public boolean adicionar(Contribuinte c) throws ContribuinteDAOException {
         try {
             Connection con = getConnection();
+            
             PreparedStatement stmt = con.prepareStatement(
                     "INSERT INTO Contribuinte (NOME, CPF, IDADE, DEPENDENTES, CONTRIBUICAO, RENDIMENTOS) VALUES (?,?,?,?,?,?)" //                             1        2         3            4          5             6
                     );
