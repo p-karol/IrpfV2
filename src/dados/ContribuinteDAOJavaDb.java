@@ -40,8 +40,7 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
                 */
     }
     
-    
-    //public Contribuinte(String nome, String cpf, int idade, int numDependentes, double contrubuicaoPrevidenciaria, double totalRendimentos) {
+   
     
     
     private static void createDB() throws ContribuinteDAOException {
@@ -95,4 +94,26 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
             throw new ContribuinteDAOException("Falha ao adicionar.", ex);
         }
     }
+    
+    @Override
+    public List<Contribuinte> getTodos() throws ContribuinteDAOException {
+        try {
+            Connection con = getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet resultado = stmt.executeQuery("SELECT * FROM Contribuinte");
+            List<Contribuinte> lista = new ArrayList<Contribuinte>();
+            while(resultado.next()) {
+                String nome = resultado.getString("NOME");
+                String cpf = resultado.getString("CPF");
+                int idade = resultado.getInt("IDADE");
+                int numeroDependentes = resultado.getInt("DEPENDENTES");
+                double contribuicaoPrevidenciaria = resultado.getDouble("CONTRIBUICAO");
+                double totalRendimentos = resultado.getDouble("RENDIMENTOS");
+                Contribuinte c = new Contribuinte(nome, cpf, idade, numeroDependentes, contribuicaoPrevidenciaria,  totalRendimentos);
+                lista.add(c);
+            }
+            return lista;
+        } catch (SQLException ex) {
+            throw new ContribuinteDAOException("Falha ao buscar contribuintes.", ex);
+        }    }
 }

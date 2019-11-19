@@ -67,4 +67,12 @@ public class IrpfFachada {
         valorIrpf = calculo.calcular(c); 
         return valorIrpf; 
     }
+    
+    public List<Contribuinte> buscarTodos() throws IrpfException{
+        try {
+            return dao.getTodos();
+        } catch (ContribuinteDAOException e) {
+            throw new IrpfException("Falha ao buscar contribuintes!", e);
+        }
+    }
 }

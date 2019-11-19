@@ -53,8 +53,9 @@ public class ImpostoView extends javax.swing.JFrame {
         txtDependentes = new javax.swing.JTextField();
         lblContribuicao = new javax.swing.JLabel();
         txtContribuicao = new javax.swing.JTextField();
-        ResultadoImposto = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jLabel2 = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,13 +99,10 @@ public class ImpostoView extends javax.swing.JFrame {
 
         lblContribuicao.setText("Contribuição previdênciária oficial");
 
-        ResultadoImposto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResultadoImpostoActionPerformed(evt);
-            }
-        });
+        jList1.setModel(controlador.getListaContribuinteModel());
+        jScrollPane1.setViewportView(jList1);
 
-        jLabel1.setText("Imposto a Pagar");
+        jLabel2.setText("Impostos calculados");
         setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,6 +112,7 @@ public class ImpostoView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,19 +140,15 @@ public class ImpostoView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblOpcao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(ResultadoImposto, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 146, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rdSimplificado)
-                                .addGap(18, 18, 18)
-                                .addComponent(rdCompleto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btCalcular)
-                                .addGap(10, 10, 10)))))
+                        .addComponent(rdSimplificado)
+                        .addGap(18, 18, 18)
+                        .addComponent(rdCompleto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                        .addComponent(btCalcular)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,11 +184,11 @@ public class ImpostoView extends javax.swing.JFrame {
                     .addComponent(lblOpcao)
                     .addComponent(rdSimplificado)
                     .addComponent(rdCompleto))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ResultadoImposto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(119, 119, 119))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -251,10 +246,6 @@ public class ImpostoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdCompletoActionPerformed
 
-    private void ResultadoImpostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResultadoImpostoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ResultadoImpostoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -273,11 +264,12 @@ public class ImpostoView extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ResultadoImposto;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JButton btCalcular;
     private javax.swing.ButtonGroup grupoOpcao;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblContribuicao;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblDependentes;

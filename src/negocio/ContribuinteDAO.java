@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface ContribuinteDAO {
     boolean adicionar(Contribuinte p) throws ContribuinteDAOException;
+    public List<Contribuinte> getTodos() throws ContribuinteDAOException;
     
     /*
     Contribuinte getPessoaPorNome(String n) throws ContribuinteDAOException;

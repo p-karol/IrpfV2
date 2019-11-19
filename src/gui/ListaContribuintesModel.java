@@ -12,14 +12,14 @@ import javax.swing.AbstractListModel;
  *
  * @author Julio
  */
-public class ListaContribuintes extends AbstractListModel<String> {
+public class ListaContribuintesModel extends AbstractListModel<String> {
     private List<String> nomes = new ArrayList<String>();
     
-    public ListaContribuintes(){
+    public ListaContribuintesModel(){
         super();
     }
     
-    public ListaContribuintes(List<String> dados){
+    public ListaContribuintesModel(List<String> dados){
         nomes.addAll(dados);
     }
     

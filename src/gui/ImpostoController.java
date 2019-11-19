@@ -15,21 +15,36 @@ import negocio.*;
  */
 public class ImpostoController {
     private IrpfFachada fachada;
-    private ListaContribuintes modelSaidaTexto;
+    private ListaContribuintesModel modelSaidaTexto;
 
     public ImpostoController() throws IrpfException {
         fachada = new IrpfFachada();
-       // modelSaidaTexto = new ListaContribuintes(toListString(fachada.buscarTodos()));
-    }
-
-    public ListModel<String> getListaPessoasModel(){
-        return modelSaidaTexto;
+        modelSaidaTexto = new ListaContribuintesModel(toListString(fachada.buscarTodos()));
     }
     
-    public double calcularIrpf(String nome, String cpf, int idade, int numeroDependentes, double contrubuicaoPrevidenciaria, double  totalRendimentos, String tipo) throws IrpfException {
-        Contribuinte p = fachada.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contrubuicaoPrevidenciaria,  totalRendimentos, tipo);
-        System.out.println(p.toString());
+    public double calcularIrpf(String nome, String cpf, int idade, int numeroDependentes, double contribuicaoPrevidenciaria, double  totalRendimentos, String tipo) throws IrpfException {
+        Contribuinte p = fachada.adicionarContribuinte(nome, cpf, idade, numeroDependentes, contribuicaoPrevidenciaria,  totalRendimentos, tipo);
+        
+        if(p != null)
+            modelSaidaTexto.add(p.toString());
+        
         return fachada.calculaIrpf(p, tipo);
+    }
+    
+    private List<String> toListString(List<Contribuinte> listaOrigem) {
+        List<String> listaDestino = new ArrayList<String>(listaOrigem.size());
+        for(Contribuinte c : listaOrigem) {
+            listaDestino.add(c.toString());
+        }
+        return listaDestino;
+    }
+    
+    public List<String> getTodos() throws IrpfException {
+        return toListString(fachada.buscarTodos());
+    }
+    
+    public ListModel<String> getListaContribuinteModel(){
+        return modelSaidaTexto;
     }
     
     
