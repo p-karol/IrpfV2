@@ -40,9 +40,6 @@ public class ContribuinteDAOJavaDb implements ContribuinteDAO{
                 */
     }
     
-   
-    
-    
     private static void createDB() throws ContribuinteDAOException {
         System.out.println("Vem aqui");
         try {

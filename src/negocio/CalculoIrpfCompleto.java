@@ -18,7 +18,7 @@ public class CalculoIrpfCompleto implements CalculoIrpf {
         int dependentes = contribuinte.getNumeroDependentes();
         boolean idoso = contribuinte.getIdade() >= 65;
         
-        //calcula base de calculo do contribuinte 
+        //define base de calculo do contribuinte, separado em classe caso mude a lógica facilita manutenção/usada tb pro calculo simples
         CalculoBase baseCalculo = new CalculoBase(contribuinte);
         double base = baseCalculo.calculoBaseCalculo();
         
